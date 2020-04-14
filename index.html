@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Useful Bookmarks</title>
+
+  <style>
+    h1 {
+      text-align: center;
+    }
+
+    a {
+      text-decoration: none;
+      cursor: move;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Useful Bookmarks</h1>
+
+  <ul id="container"></ul>
+
+  <script>
+    let bms = [{
+      name: "Remove SmileFace in FB Message",
+      description: "",
+      code: `javascript:(function(){let chars='🙂,🙃,:)';if(window.confirm('Xoá hết cmn luôn các kí tự cười ' + chars + ' trong tin nhắn fb !!')) Array.from(document.getElementsByTagName('img')).forEach(img => {if(chars.split(',').indexOf(img.alt) != -1) img.style.display="none"})}())`
+    }, {
+      name: "Toggle all message tabs in Facebook",
+      description: "",
+      code: `javascript:(function(){Array.from(document.getElementsByClassName('_69pt')).forEach(ele => ele.click())})()`
+    }]
+
+    const ul = document.getElementById('container');
+
+    for (let i = 0; i < bms.length; i++) {
+      let a = document.createElement('a');
+      a.innerHTML = bms[i].name;
+      a.href = bms[i].code;
+
+      let li = document.createElement('li');
+      li.appendChild(a);
+
+      ul.appendChild(li);
+    }
+  </script>
+
+</body>
+
+</html>
